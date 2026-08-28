@@ -51,7 +51,7 @@ lib.makeOverridable (
           # copy custom apps into CustomApps folder
           ${lib.concatMapStringsSep "\n" (item: "cp -ru '${item.src}' 'CustomApps/${item.name}'") apps}
 
-          touch 'Themes/${theme.name}/color.ini'
+          # touch 'Themes/${theme.name}/color.ini'
           # add a custom color scheme if necessary
           ${lib.optionalString (customColorScheme != { }) ''
             crudini --merge 'Themes/${theme.name}/color.ini' < '${
